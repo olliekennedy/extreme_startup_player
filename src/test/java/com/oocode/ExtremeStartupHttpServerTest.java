@@ -8,8 +8,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
-public class AnsweringServerTest {
-    private AnsweringServer server;
+public class ExtremeStartupHttpServerTest {
+    private ExtremeStartupHttpServer server;
 
     @Test
     public void canAnswerMyName() throws Exception {
@@ -27,7 +27,7 @@ public class AnsweringServerTest {
 
     @BeforeEach
     public void startLocalServer() {
-        server = new AnsweringServer(9123);
+        server = new ExtremeStartupHttpServer(9123);
         server.start();
     }
 

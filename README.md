@@ -1,3 +1,7 @@
+This is a starting point for a Java player of the Extreme Startup game devised by [Robert Chatley](https://github.com/rchatley).
+
+To join a game, see: https://extreme-startup.fly.dev/ (further instructions in lab)
+
 For this lab we will use https://fly.io/
 
 1. [Sign up for an account](https://fly.io/app/sign-up)
@@ -64,13 +68,13 @@ fly logs
 ### build docker image
 
 ```bash
-docker build -t simple-web-app-using-fly .
+docker build -t extreme_startup_player .
 ```
 
 ### run docker container based on that image
 
 ```bash
-docker run -p 8123:8123 simple-web-app-using-fly
+docker run -p 8123:8123 extreme_startup_player
 ```
 
 Then view http://localhost:8123/
