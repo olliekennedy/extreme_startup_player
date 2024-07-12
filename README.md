@@ -59,7 +59,8 @@ fly auth login
 ```bash
 sed -i .back "s/extreme-startup-player/extreme-startup-player-$USER/g" fly.toml
 ```
-3. "Launch" the app to register it with Fly.io - you only have to do this once
+3. commit and push this change
+4. "Launch" the app to deploy it for the first time to Fly.io - you only have to do this once
 ```bash
 fly launch
 ```
@@ -71,15 +72,27 @@ y
 Do you want to tweak these settings before proceeding? (y/N)
 n
 ```
-4. deploy to fly
+If this has worked, you should see a message like:
+```text
+Visit your newly deployed app at https://extreme-startup-player-ivan.fly.dev/
+```
+5. deploy to fly with "deploy" instead of "launch"
 ```bash
 fly deploy
 ```
-5. Set up GitHub Actions CD pipeline
+6. Open a browser on the URL of the deployed service
+```bash
+open "https://extreme-startup-player-$USER.fly.dev/"
+```
+7. Set up GitHub Actions CD pipeline:
+   - Generate a token for Fly.io
 ```bash
 fly tokens create deploy -x 999999h
 ```
-6. Join the game, see: https://extreme-startup.fly.dev/ (you will be given the `game id` in the lab)
+   - Go to the GitHub “Settings” for your repository where you’ll find “Secrets and variables” and click on “Actions”
+   - In the “Repository Secrets” section, add “New repository secret” with name FLY_API_TOKEN and the value as just generated.
+   - Make sure your pipeline setup is working by making a change to the HTML in the class HomePage and seeing that it changes in the deployed service.
+8. Join the game, see: https://extreme-startup.fly.dev/ (you will be given the `game id` in the lab)
 
 # Troubleshooting
 
