@@ -1,14 +1,29 @@
 This is a starting point for a Java player of the Extreme Startup game devised by [Robert Chatley](https://github.com/rchatley).
 
-To join a game, see: https://extreme-startup.fly.dev/ (further instructions in lab)
+	“teams can compete to build a software product that satisfies market demand.” (Rob Chatley)
+
+# Steps to get started
+
+1. Login to https://github.com/
+2. Fork this repo
+3. Clone your fork on your machine:
+    - ```git clone git@github.com:<your-username>/extreme_startup_player.git```
+4. Make sure you can build the service on your machine:
+    - ```./gradlew build```
+5. _Optionally_, you can run the service on your machine:
+    - ```./gradlew run```
+    - open http://127.0.0.1:8123/
+    - You should see:
+      - ![image](Screenshot.png)
+    - <code style="color:red">Stop the server</code>
+
+## Deploying the service
 
 For this lab we will use https://fly.io/
 
-1. [Sign up for an account](https://fly.io/app/sign-up)
-2. It tells you to add a payment method - I will give you details
-3. Open your email to verify your email for fly
+This is a commercial product - I have no affiliation with it, it’s just useful for the lab.
 
-### install fly
+### Install the Fly.io CLI
 
 First, check to see whether you have the "fly" CLI already installed.
 
@@ -34,16 +49,20 @@ brew install flyctl
 
 ### login to fly
 
+For this you will need a username and password which I will give you.
+
+1. Login to fly 
 ```bash
 fly auth login
 ```
-
-### initial deployment to fly
-
+2. Edit fly.toml so your service gets a unique URL (for example):
+```bash
+sed -i .back "s/extreme-startup-player/extreme-startup-player-$USER/g" fly.toml
+```
+3. "Launch" the app to register it with Fly.io - you only have to do this once
 ```bash
 fly launch
 ```
-
 Answer the questions as below:
 ```
 Would you like to copy its configuration to the new app? (y/N)
@@ -52,12 +71,17 @@ y
 Do you want to tweak these settings before proceeding? (y/N)
 n
 ```
-
-### deploy to fly
-
+4. deploy to fly
 ```bash
 fly deploy
 ```
+5. Set up GitHub Actions CD pipeline
+```bash
+fly tokens create deploy -x 999999h
+```
+6. Join the game, see: https://extreme-startup.fly.dev/ (you will be given the `game id` in the lab)
+
+# Troubleshooting
 
 ### debug running app
 
@@ -65,30 +89,25 @@ fly deploy
 fly logs
 ```
 
-### build docker image
+## Docker
 
+Fly.io builds and runs your service as a Docker container.
+You can replicate what it is doing on your machine if you have Docker installed.
+
+1. build docker image
 ```bash
 docker build -t extreme_startup_player .
 ```
-
-### run docker container based on that image
-
+2. run docker container based on that image
 ```bash
-docker run -p 8123:8123 extreme_startup_player
+docker run -p 8123:8123 --name extreme_startup_player extreme_startup_player
 ```
-
-Then view http://localhost:8123/
-
-### cleanup
-
+3. See it running: http://localhost:8123/
+4. run docker container based on that image
+```bash
+docker rm -f extreme_startup_player
+```
+5. cleanup
 ```bash
 docker container prune -f
-```
-
-### CI/CD
-
-from: https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
-
-```bash
-fly tokens create deploy -x 999999h
 ```
