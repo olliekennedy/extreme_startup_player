@@ -62,6 +62,13 @@ public class AnswererTest {
     }
 
     @Test
+    void findAdditionThenMultiplicationOfNumbers() {
+        var contents = new Answerer().answerFor("What is 74 plus by 83 multiplied 6?");
+
+        assertThat(contents, equalTo("942"));
+    }
+
+    @Test
     void findPowerOfNumbers() {
         var contents = new Answerer().answerFor("What is 2 to the power of 4?");
 
