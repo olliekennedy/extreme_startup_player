@@ -38,4 +38,11 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("86"));
     }
+
+    @Test
+    void findMultiplicationOfNumbers() {
+        var contents = new Answerer().answerFor("What is 87 multiplied by 97");
+
+        assertThat(contents, equalTo("8439"));
+    }
 }

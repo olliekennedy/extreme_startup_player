@@ -10,6 +10,13 @@ public class Answerer {
             var first = Integer.parseInt(split[2]);
             var second = Integer.parseInt(split[4]);
             return Integer.toString(first + second);
+        }
+
+        else if(question.contains("multiplied by")) {
+            var split = question.split(" ");
+            var first = Integer.parseInt(split[2]);
+            var second = Integer.parseInt(split[5]);
+            return Integer.toString(first * second);
         } else {
             return "foo";
         }
