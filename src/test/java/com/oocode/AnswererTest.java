@@ -27,21 +27,21 @@ public class AnswererTest {
 
     @Test
     void findSumOfNumbers() {
-        var contents = new Answerer().answerFor("What is 24 plus 23");
+        var contents = new Answerer().answerFor("What is 24 plus 23?");
 
         assertThat(contents, equalTo("47"));
     }
 
     @Test
     void findSumOfNumbersAnother() {
-        var contents = new Answerer().answerFor("What is 2 plus 84");
+        var contents = new Answerer().answerFor("What is 96 plus 19?");
 
-        assertThat(contents, equalTo("86"));
+        assertThat(contents, equalTo("115"));
     }
 
     @Test
     void findMultiplicationOfNumbers() {
-        var contents = new Answerer().answerFor("What is 87 multiplied by 97");
+        var contents = new Answerer().answerFor("What is 87 multiplied by 97?");
 
         assertThat(contents, equalTo("8439"));
     }
