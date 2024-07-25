@@ -27,17 +27,18 @@ public class AnswererTest {
 
     @Test
     void findSumOfNumbers() {
-        var contents = new Answerer().answerFor("What is 24 plus 23?");
+        var contents = new Answerer().answerFor("What is 24 plus 23 plus 2?");
 
-        assertThat(contents, equalTo("47"));
+        assertThat(contents, equalTo("49"));
     }
 
     @Test
-    void findSumOfNumbersAnother() {
-        var contents = new Answerer().answerFor("What is 96 plus 19?");
+    void findTripleSumOfNumbers() {
+        var contents = new Answerer().answerFor("What is 5 plus 11 plus 72?");
 
-        assertThat(contents, equalTo("115"));
+        assertThat(contents, equalTo("88"));
     }
+
 
     @Test
     void findMinusNumbers() {
