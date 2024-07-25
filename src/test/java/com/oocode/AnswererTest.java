@@ -62,10 +62,24 @@ public class AnswererTest {
     }
 
     @Test
+    void findMultiplicationThenAdditionOfNumbersAnother() {
+        var contents = new Answerer().answerFor("What is 54 multiplied by 97 plus 77?");
+
+        assertThat(contents, equalTo("5315"));
+    }
+
+    @Test
     void findAdditionThenMultiplicationOfNumbers() {
         var contents = new Answerer().answerFor("What is 74 plus 83 multiplied by 6?");
 
-        assertThat(contents, equalTo("942"));
+        assertThat(contents, equalTo("572"));
+    }
+
+    @Test
+    void findAdditionThenMultiplicationOfNumbersAnother() {
+        var contents = new Answerer().answerFor("What is 52 plus 32 multiplied by 3?");
+
+        assertThat(contents, equalTo("148"));
     }
 
     @Test
