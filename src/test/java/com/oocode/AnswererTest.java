@@ -45,4 +45,10 @@ public class AnswererTest {
 
         assertThat(contents, equalTo("8439"));
     }
+    @Test
+    void findPowerOfNumbers() {
+        var contents = new Answerer().answerFor("What is 2 to the power of 4?");
+
+        assertThat(contents, equalTo("16"));
+    }
 }
