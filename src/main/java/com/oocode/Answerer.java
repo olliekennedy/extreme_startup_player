@@ -34,8 +34,8 @@ public class Answerer {
             return Integer.toString(((Integer.parseInt(listOfWords[2]) * Integer.parseInt(listOfWords[5])) + Integer.parseInt(listOfWords[7])));
         }
 
-        if (listOfWords.length > 6 && listOfWords[3].equals("plus") && listOfWords[6].equals("multiplied")) {
-            return Integer.toString(((Integer.parseInt(listOfWords[2]) + Integer.parseInt(listOfWords[5])) * Integer.parseInt(listOfWords[7])));
+        if (listOfWords.length > 6 && listOfWords[3].equals("plus") && listOfWords[5].equals("multiplied")) {
+            return Integer.toString(((Integer.parseInt(listOfWords[2]) + Integer.parseInt(listOfWords[4])) * Integer.parseInt(listOfWords[7])));
         }
 //        Arrays.stream(question.split(" ")).map(s -> {
 //            switch (s) {

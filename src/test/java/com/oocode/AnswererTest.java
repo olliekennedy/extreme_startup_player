@@ -63,7 +63,7 @@ public class AnswererTest {
 
     @Test
     void findAdditionThenMultiplicationOfNumbers() {
-        var contents = new Answerer().answerFor("What is 74 plus by 83 multiplied 6?");
+        var contents = new Answerer().answerFor("What is 74 plus 83 multiplied by 6?");
 
         assertThat(contents, equalTo("942"));
     }
