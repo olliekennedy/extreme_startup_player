@@ -8,12 +8,12 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AnswererTest {
-//    @Test
-//    public void canAnswerMyName() {
-//        var contents = new Answerer().answerFor("Which of the following numbers is the largest: 19, 57, 27");
-//
-//        assertThat(contents, equalTo("57"));
-//    }
+    @Test
+    public void canAnswerMyName() {
+        var contents = new Answerer().answerFor("What is your name?");
+
+        assertThat(contents, equalTo("Jack will win this for us"));
+    }
 //
 //    @Test
 //    public void findLargestNumber(){
@@ -52,6 +52,13 @@ public class AnswererTest {
         var contents = new Answerer().answerFor("What is 87 multiplied by 97?");
 
         assertThat(contents, equalTo("8439"));
+    }
+
+    @Test
+    void findMultiplicationThenAdditionOfNumbers() {
+        var contents = new Answerer().answerFor("What is 74 multiplied by 83 plus 6?");
+
+        assertThat(contents, equalTo("6148"));
     }
 
     @Test
