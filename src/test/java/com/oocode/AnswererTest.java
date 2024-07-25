@@ -40,15 +40,30 @@ public class AnswererTest {
     }
 
     @Test
+    void findMinusNumbers() {
+        var contents = new Answerer().answerFor("What is 96 minus 19?");
+
+        assertThat(contents, equalTo("77"));
+    }
+
+    @Test
     void findMultiplicationOfNumbers() {
         var contents = new Answerer().answerFor("What is 87 multiplied by 97?");
 
         assertThat(contents, equalTo("8439"));
     }
+
     @Test
     void findPowerOfNumbers() {
         var contents = new Answerer().answerFor("What is 2 to the power of 4?");
 
         assertThat(contents, equalTo("16"));
     }
+
+//    @Test
+//    void whichArePrimes() {
+//        var contents = new Answerer().answerFor("Which of the following numbers are primes: 3, 7, 4, 94, 39?");
+//
+//        assertThat(contents, equalTo("3, 7"));
+//    }
 }
