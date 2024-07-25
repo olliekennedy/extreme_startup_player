@@ -1,5 +1,6 @@
 package com.oocode;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class Answerer {
@@ -27,9 +28,9 @@ public class Answerer {
 
         } else if (question.contains("power of")) {
             var split = question.substring(0, question.length() - 1).split(" ");
-            var first = Integer.parseInt(split[2]);
+            var first = new BigInteger(split[2]);
             var second = Integer.parseInt(split[7]);
-            return Integer.toString((int) Math.pow(first, second));
+            return first.pow(second).toString();
 //        else if(question.contains("following numbers are primes")) {
 //            String[] numbersString = Arrays.stream(question
 //                    .substring(0, question.length() - 1)
